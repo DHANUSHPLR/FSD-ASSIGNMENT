@@ -1,0 +1,66 @@
+CREATE TABLE employee (eid number(10),ename varchar(20), esalary number(10));
+
+INSERT INTO employee values(101,'Raj',200000);
+INSERT INTO employee values(102,'Ram',230000);
+INSERT INTO employee values(103,'Mani',140000);
+INSERT INTO employee values(104,'Dilip',240000);
+
+select * from employee;
+
+desc employee;
+
+select * from employee where eid in (101 ,103);
+
+select * from employee where eid not in (101 ,103);
+
+select * from employee where esalary between 140000 and 200000;
+
+select * from employee where esalary not between 140000 and 200000;
+
+select * from employee where eid in(101,103) and esalary  >=200000;
+
+select * from employee where eid in(101,103) or esalary  <200000;
+
+select * from employee where eid >103 and esalary < 250000;
+
+select * from employee where eid >103 or esalary < 200000;
+
+insert into employee (eid ,esalary) values (105,180000);
+
+update employee set eid=105
+
+select * from employee where ename is null;
+
+select * from employee where ename is not null;
+
+select * from employee where ename like 'R%';
+
+select * from employee where ename like '__j%';
+
+select * from employee where ename like '_a%';
+
+select * from employee where ename like '%p';
+
+select * from employee where ename like '%a%';
+
+SELECT * FROM employee ORDER BY ename DESC;
+
+SELECT * FROM employee ORDER BY ename ASC;
+
+SELECT * FROM employee ORDER BY eid DESC;
+
+alter table employee add doj date;
+
+update employee set doj = sysdate where eid = 101;
+
+update employee set doj = sysdate where eid = 101;
+
+update employee set doj='09/08/2024' where eid in (102,104);
+
+alter table employee add department varchar(20);
+
+update employee set department = 'CSE';
+
+update employee set department = 'ECE' where eid in (105,102);
+
+alter table employee rename column department to dept;
